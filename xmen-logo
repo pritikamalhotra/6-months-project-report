@@ -1,0 +1,60 @@
+layer = active.proxy.layerByName("0")
+d=active.document()
+bj=Builder(d)
+ 
+--Circle
+for i=0,10,0.1 do
+c=Circle(Coord(0,0),100+i,layer)
+bj:append(c)
+end
+ 
+--function for horizontal lines
+function hrz(a,b,c,d,l)
+for k=0,l,1
+do
+h=Line(Coord(a,b+k),Coord(c,d+k),layer)
+bj:append(h)
+end
+end
+--function for vertical lines
+function add(a,b,c,d,l)
+for u=0,l,1
+do
+m1=Line(Coord(a+u,b),Coord(c+u,d),layer)
+bj:append(m1)
+end
+end
+ 
+--x calling
+add(0,0,300,300,50)
+add(100,0,400,300,50)
+add(360,0,60,300,50)
+add(300,0,0,300,50)
+ 
+--circle lines calling
+add(-5,-100,-5,-200,10)
+add(-5,100,-5,200,10)
+hrz(100,-5,200,-5,10)
+hrz(-100,-5,-200,-5,10)
+ 
+--m calling
+add(650,0,650,300,50)
+add(950,0,950,300,50)
+add(650,0,800,150,50)
+add(800,150,950,0,50)
+ 
+--hyphon
+hrz(450,150,550,150,50)
+ 
+--E calling
+add(1100,0,1100,300,50)
+hrz(1150,0,1300,0,50)
+hrz(1150,125,1300,125,50)
+hrz(1150,250,1300,250,50)
+ 
+--N calling
+add(1400,0,1400,300,50)
+add(1400,0,1650,300,50)
+add(1650,0,1650,300,50)
+ 
+bj:execute()
