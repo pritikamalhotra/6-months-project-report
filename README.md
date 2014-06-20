@@ -8,4 +8,6 @@ Anyone can copy that code and paste into LibreCAD 3 and click Run to execute the
 
 Thank you,
 Mandeep Singh
-D3 CSE, GNDEC
+D3 CSE
+TCC, GNDEC
+Ludhiana
