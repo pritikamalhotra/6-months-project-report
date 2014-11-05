@@ -14,4 +14,10 @@
 \BOOKMARK [2][]{subsection.3.4.2}{Using Qt Quick Toolbars}{section.3.4}% 14
 \BOOKMARK [2][]{subsection.3.4.3}{Deploying Applications to Mobile Devices}{section.3.4}% 15
 \BOOKMARK [2][]{subsection.3.4.4}{Getting Help}{section.3.4}% 16
-\BOOKMARK [0][]{chapter.4}{Technologies Used}{}% 17
+\BOOKMARK [1][]{section.3.5}{Introduction to Cairo Graphics Library}{chapter.3}% 17
+\BOOKMARK [0][]{chapter.4}{Project Work}{}% 18
+\BOOKMARK [1][]{section.4.1}{Text Editor using Qt}{chapter.4}% 19
+\BOOKMARK [2][]{subsection.4.1.1}{Installation Guide}{section.4.1}% 20
+\BOOKMARK [1][]{section.4.2}{Design implementation using Lua scripting language}{chapter.4}% 21
+\BOOKMARK [1][]{section.4.3}{Hatching}{chapter.4}% 22
+\BOOKMARK [2][]{subsection.4.3.1}{Introduction}{section.4.3}% 23
