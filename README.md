@@ -13,4 +13,4 @@ It will produce a pdf file named "report.pdf" in the current directory. Open tha
 ======Thanks======
 Mandeep Singh
 mandeep7.wordpress.com
-mandeeps708@github.com
+github.com/mandeeps708
