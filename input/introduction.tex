@@ -1,0 +1,298 @@
+\section{Introduction to Project}
+
+ Numerical methods Methods designed for the constructive solution of mathematical problems requiring particular numerical results, usually on a computer. A numerical method is a complete and unambiguous set of procedures for the solution of a problem, together with computable error estimates (see error analysis). The study and implementation of such methods is the province of numerical analysis.\\
+ Numerical analysis A branch of mathematics/computer science dealing with the study of algorithms for the numerical solution of problems formulated and studied in other branches of mathematics. Numerical analysis now plays a central role in engineering and in the quantitative parts of pure and applied science. The tasks of numerical analysis include the development of fast and reliable numerical methods together with the provision of a suitable error analysis. The algorithms are developed as computer programs, taking full account of machine architectures such as parallelism.
+
+\textbf{Introduction to Numerical Analysis Tool}
+
+Numerical Analysis Tool consists of set of programs implemented in octave
+The set of problems covered are:
+\begin{itemize}
+\item Bisection Method
+\item Secant Method
+\item Newton Raphson Method
+\item Gauss Jordan
+\item Gauss Elimination
+\item Gauss Seidel
+\item Euler's Method
+\item Modified Euler Method
+\item Adam's Method
+\item RK Method
+\end{itemize}
+
+
+\subsection{Bisection Method}
+Bisection method is the simplest among all the numerical schemes to solve the transcendental equations. Consider a transcendental equation f (x) = 0  which has a zero in the interval [a,b] and f (a) * f (b) \textless 0. Bisection scheme computes the zero, say c, by repeatedly halving the interval [a,b]. That is, starting with 
+$c = (a+b) / 2$
+the interval [a,b] is replaced either with [c,b] or with [a,c] depending on the sign of f (a) * f (c) . This process is continued until the zero is obtained. Since the zero is obtained numerically the value of c may not exactly match with all the decimal places of the analytical solution of f (x) = 0 in the interval [a,b]. \\
+
+\noindent Given a function f (x) continuous on an interval [a,b] and f (a) * f (b) \textless 0\\
+	Do\\ 
+	c = (a+b)/2 \\
+	if f (a) * f (c) \textless 0 then  b = c \\
+	else  a = c \\
+	while (condition is true)
+
+%----------------------------------------------------------------------------------------
+\
+\
+\
+%-------------------------------------------------------------------
+
+\subsection{Secant Method}
+The secant method requires two initial approximations $x0$ and $x1$,preferrably both reasonably close to the solution $x*$. This is an improvement over the method of false position as it does not require the condition $f((x0) f(x1))\textless 0$.Here also the graph of the function $y=f(x)$ is approximated by a secant line but at each iteration, two most recent approximations to the root are used to find the next approximation. Also it is not necessary that the interval must contain the root.\\
+The general formula for successive approximation is, therefore, given by\\
+$x_{n+1}=x_{n}-{\frac{x_{n} -x_{n-1}}{f(x_{n}-f(x_{n-1})}}f(x_{n}),n \geq 1.$
+
+
+
+
+%----------------------------------------------------------------------------------------
+\
+\
+\
+%-------------------------------------------------------------------
+
+\subsection{Newton Raphson}
+Unlike the earlier methods, this method requires only one appropriate starting point $ x_{0}$ as an initial assumption of the root of the function $ f(x)=0$. At $ (x_{0},f(x_{0}))$ a tangent to $ f(x)=0$ is drawn. Equation of this tangent is given by $\displaystyle y=f'(x_{0})(x-x_{0})+f(x_{0})$ 
+The point of intersection, say , of this tangent with x-axis (y = 0) is taken to be the next approximation to the root of f(x) = 0. So on substituting y = 0 in the tangent equation we get
+$\displaystyle x_{1}=x_{0}-\frac{f(x_{0})}{f'(x_{0})}$ 
+If $ \vert f(x_{1})\vert < \epsilon=10^{-6}$ (say) we have got an acceptable approximate root of $ f(x)=0$, otherwise we replace $ x_{0}$ by , and draw a tangent to $ f(x)=0$ at $ (x_{1},f(x_{1}))$ and consider its intersection, say , with x-axis as an improved approximation to the root of f(x)=0. If $ \vert f(x_{2})\vert>\epsilon$, we iterate the above process till the convergence criteria is satisfied.
+In general Newton-Raphson formula is given by\\
+$x_{n+1}=x_{n}-\frac{f(x_{n})}{f'(x_{n})}$ (n=0,1,2...)
+
+
+%--------------
+\
+\
+%--------------------
+\subsection{Gauss Jordan and Gauss Elimination}
+It is the method involving elimination of unknowns,ultimately reducing system to a diagonal matrix form i.e. each equation involving only one unknown. From these equations, the unknowns x,y,z can be obtained readily.
+Thus in this method, the labour of back-substitution for finding the unknowns is saved at the cost of addiitional calculations.\\
+In this method, the unknowns are eliminated successively and the system is reduced to an upper triangular system from which the unknowns are found by back substitution. The method is quite general and is well-adapted for computer operations. Here we shall explain it by considering a system of three equations for sake of clarity.\\
+
+
+\noindent Consider the equations
+
+
+\noindent$a_1x+b_1y+c_1z=d_1$\\
+$a_2x+b_2y+c_2z=d_2$\\
+$a_3x+b_3y+c_3z=d_3$\\
+
+
+Step I. To eliminate $x$ from second and third equations.
+
+$$a_1x+b_1y+c_1z=d_1$$
+
+$$b'_2y+c'_2z=d'_2$$
+
+$$b'_3y+c'_3z=d'_3$$
+
+Step II. To eliminate $y$ from third equation in (2)
+
+$$a_1x+b_1y+c_1z=d_1$$
+
+$$b'_2y+c'_2z=d'_2$$
+
+$$c'_3z=d"_3$$
+
+Step III. To evaluate the unknowns\\
+
+i.e equation (1), (2) and (3).
+
+
+
+
+
+%--------------
+\
+\
+%-------------------
+\subsection{Jacobi Method}
+It is the simplest iterative method to solve the system of equations.
+Consider the equations
+
+$$\begin{cases}a_1x +b_1y +c_1z =d_1\\a_2x + b_2y + c_2z=d_2\\a_3x+b_3y+c_3z=d_3\end{cases}\ldots(1)$$
+
+If $a_1,b_2,c_3$ are large as compared to other coefficients, solve for $x,y,z$ respectively. Then the system can be written as
+
+$$\begin{cases}x=\frac{1}{a_1}(d_1-b_1y-c_1z)\\y=\frac{1}{b_2}(d_2-a_2x-c_2z)\\z=\frac{1}{c_3}(d_3-a_3x-b_3y)\end{cases}\ldots(2)$$
+
+Let us start with the initial approximations $x_0,y_0,z_0$ for the values of $x,y,z$ respectively. Substituting these on the right sides of (2), the first approximations are given by\\
+\noindent $x_1=\frac{1}{a_1}(d_1-b_1y_0-c_1z_0)$\\
+$y_1=\frac{1}{b_2}(d_2-a_2x_0-c_2z_0)$\\
+$z_1=\frac{1}{c_3}(d_3-a_3x_0-b_3y_0)$\\
+
+\noindent Substituting the values $x_1,y_1,z_1$ on the right sides of (2), the second approximations are given by
+
+\noindent$x_2=\frac{1}{a_1}(d_1-b_1y_1-c_1z_1)$\\
+$y_2=\frac{1}{b_2}(d_2-a_2x_1-c_2z_1)$\\
+$z_2=\frac{1}{c_3}(d_3-a_3x_1-b_3y_1)$\\
+
+\noindent This process is repeated till the difference between two consecutive approximations is negligible.
+%--------------
+\
+\
+%--------------------
+\subsection{Gauss Seidel}
+You will now look at a modification of the Jacobi method called the Gauss-Seidel method, named  after  Carl  Friedrich  Gauss  (1777–1855)  and  Philipp  L.  Seidel  (1821–1896).  This modification is no more difficult to use than the Jacobi method, and it often requires fewer iterations to produce the same degree of accuracy.
+With  the  Jacobi  method,  the  values  of $xi$ obtained  in  the  nth  approximation  remain unchanged  until  the  entire  (n+1)th  approximation  has  been  calculated.  
+With  the  Gauss-Seidel  method, on  the  other  hand, you  use  the  new  values  of  each  as  soon  as  they  are known. That is, once you have determined from the first equation, its value is then used in  the  second  equation  to  obtain  the  new  $x2$.
+Similarly,  the  new $x1$ and $x2$  are  used  in  
+the  third  equation  to  obtain  the  new $x3$  and  so  on.\\
+This is a modification of Jacobi's method. As before the system of equations:
+
+$$\begin{cases}a_1x+b_1y+c_1z=d_1\\a_2x+b_2y+c_2z=d_2\\a_3x+b_3y+c_3z=d_3\end{cases}\ldots(1)$$
+
+is written as
+
+$$\begin{cases}x=\frac{1}{a_1}(d_1-b_1y-c_1z)\\y=\frac{1}{b_2}(d_2-a_2x-c_2z)\\z=\frac{1}{c_3}(d_3-a_3x-b_3y)\end{cases}\ldots(2)$$
+
+Here also we start with the initial approximations $x_0,y_0,z_0$$ for $$x,y,z$ respectively which may each be taken as zero. Substituting $$y=y_0, z=z_0$$ in the first of the equation (2), we get
+
+$$x_1=\frac{1}{a_1}(d_1-b_1y_0-c_1z_0)$$
+
+Then putting $x=x_1, z=z_0$ in the second of the equations(2), we have
+
+$$y_1=\frac{1}{b_2}(d_2-a_2x_1-c_2z_0)$$
+
+Next substituting $$x=x_1, y=y_1$$ in the third of the equations(2), we obtain
+$$z_1=\frac{1}{c_3}(d_3-a_3x_1-b_3y_1)$$
+
+and so on i.e. as soon as a new approximation for an unknown is found, it is immediately used in the next step.
+
+This process of iteration is repeated till the values of $x,y,z$ are obtained to desired degree of accuracy.
+
+
+%--------------
+\
+\
+%--------------------
+\subsection{Euler's Method}
+Now we will work with a general initial value problem
+
+\begin{eqnarray*} \frac{dy}{dt} & = & f(y) \\ y(0) & = & y_0 \end{eqnarray*}
+
+We will again form an approximate solution by taking lots of little steps. We will call the distance between the steps h and the various points $ (t_j, y_j) $ . To get from one step to the next, we will form the linear approximation at $ t_j $ . The derivative at this point is given by the differential equation: $ \frac{dy}{dt} = f(y) $ . The linear approximation is then
+
+\[ l(t) = y_j + f(y_j) (t-t_j) \]
+
+so that
+
+\[ y_{j+1} = l(t_{j+1}) = y_j + f(j_j) h. \]
+
+This technique is called Euler's Method. 
+
+
+
+%--------------
+\
+\
+%--------------------
+\subsection{Modified Euler's Method}
+The Euler forward scheme may be very easy to implement but it can't give accurate solutions.    A  very small step size is required for any meaningful result.  In this scheme, since, the starting point of each sub-interval is used to find the slope of the solution curve,  the solution would be correct only if the function is linear. So an improvement over this is to take the arithmetic average of the slopes at $x_{i}$  and $x_{i+1}$(that is, at the end points of each sub-interval). The scheme so obtained is called modified Euler's method. It works first by approximating a value to yi+1 and then improving it by making use of average slope.
+
+In order to use Euler's Method to generate a numerical solution to an initial value problem of the form:\\
+
+$y′ = f(x, y)$\\
+
+$y(x_0) = y_0$\\
+
+we decide upon what interval, starting at the initial condition, we desire to find the solution. We split this interval into small subdivisions of length h. Then, using the initial condition as our starting point, we generate the rest of the solution by using the iterative formulas:\\
+
+$x_{n+1} = x_{n} + h$\\
+
+$y_{n+1} = y_{n} + h f(x_{n}, y_{n})$\\
+
+to find the coordinates of the points in our numerical solution. We terminate this process when we have reached the right end of the desired interval.
+%--------------
+\
+\
+%--------------------
+\subsection{Adam's Method}
+ Adams' method is a numerical method for solving linear first-order ordinary differential equations of the form
+ $(dy)/(dx)=f(x,y)$.	\\
+ A finite-difference method for solving Cauchy's problem for systems of first-order differential equations
+ 
+ 
+ 
+\
+\
+%--------------------
+\subsection{RK Method}
+
+A method of numerically integrating ordinary differential equations by using a trial step at the midpoint of an interval to cancel out lower-order error terms. The second-order formula is
+\begin{equation}
+k_{1}	=	hf(x_{n},y_{n})
+\end{equation}	
+\begin{equation}
+k_{2}	=	hf(x_{n+1}/2h,y_{n+1}/2k_{1})	
+\end{equation}
+
+\begin{equation}
+y_(n+1)	=	y_n+k_2+O(h^3)	
+\end{equation}
+(where O(x) is a Landau symbol), sometimes known as RK2, and the fourth-order formula is
+\begin{equation}
+k_1	=	hf(x_n,y_n)	
+\end{equation}
+\begin{equation}
+k_2	=	hf(x_n+1/2h,y_n+1/2k_1)	
+\end{equation}
+\begin{equation}
+k_3	=	hf(x_n+1/2h,y_n+1/2k_2)	
+\end{equation}
+\begin{equation}
+k_4	=	hf(x_n+h,y_n+k_3)
+\end{equation}
+\begin{equation}	
+y_(n+1)	=	y_n+1/6k_1+1/3k_2+1/3k_3+1/6k_4+O(h^5)
+\end{equation}
+%--------------
+\
+\
+%--------------------
+
+\section{Objectives}
+\begin{itemize}
+\item To implement the concepts of numerical methods using programming in Octave.
+\item To give interactive graphical representations of the results.
+\item To provide a web interface for using these services
+\end{itemize}
+\newpage
+\section{Problem Formulation}
+When analytical solution of the mathematically defined problem is possible but it is time-consuming and the error of approximation we obtain with numerical solution is acceptable. In this case the calculations are mostly made with use of computer because otherwise its highly doubtful if any time is saved. It is indivually to decide what do we mean by "time-consuming analytical solution". In my discipline even very simple mechanical problems are solved numerically simply because of laziness. \\
+
+\noindent When analytical solution is impossible means that we have to apply numerical methods in order to find the solution. This does not define that we must do calculations with computer although it usually happens so because of the number of required operations.
+ \section{Recognization of Need}
+ Numerical methods of civil engineering is a subject which involves various iterative and sequential methods which are solved by students. They are given differen numerical problems and they use calculators or excel to solve these problems. The aim of this project is to provide easy and convenient programs where they can try their numerical problems and can even plot graphs.
+This approach will help them to solve problems earlier and in convenient way.\\
+Weboctave is a web interface which doesn't require installation by every user and is helpful in teaching purposes.
+\section{Existing System}
+
+There are various softwares:
+
+MATLAB is a widely used proprietary software for performing numerical calculations. It comes with its own programming language, in which numerical algorithms can be implemented.\\
+
+GNU Octave is a high-level language, primarily intended for numerical computations. It provides a convenient command line interface for solving linear and nonlinear problems numerically, and for performing other numerical experiments using a language that is mostly compatible with MATLAB. Octave includes GUI as of Version 3.8, released December 31, 2013.\\
+
+This tool is based on Octave which is distributed under the terms of the GNU General Public License. It includes various methods which can implemented by using both Octave and MATLAB.\\
+
+There are various services which provides a platform to run your programs online i.e. through a web interface like tutorialspoint,octave-online.net etc.
+These provides a mechanism through user can run his/her programs online and get results.Such services provide features like uploading, downloading .m files, saving files etc.
+
+\section{Proposed System}
+The proposed system is a learning tool which helps civil engineers or researchers to solve their numerical problems programatically. The system uses Octave for it's working which is freely available and provides an open source alternative to MATLAB.\\
+WebOctave is a web-service which enables to user octave remotely through browser.
+User can issue commands and great results.
+
+\section{Unique Features of the System}
+\begin{enumerate}
+\item Simple and easy programs for civil engineers to understand the implementation of the numerical methods.
+\item Graphical output is possible and user can make changes as required as the code is available to all under the GNU General Public License (GNU GPL or GPL)
+\item Anonymous and User accounts creation in Weboctave.
+\item Download the plots
+\item Define your own problems.
+\item View all the defined prroblems.
+\end{enumerate}
+
