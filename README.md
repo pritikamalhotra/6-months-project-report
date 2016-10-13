@@ -1,4 +1,4 @@
-6-week-report
+6-months-report
 =============
 
 This repository contains the Report for my six months training.
